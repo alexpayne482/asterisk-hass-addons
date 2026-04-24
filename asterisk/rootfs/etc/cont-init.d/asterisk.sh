@@ -126,6 +126,7 @@ bashio::var.json \
 
 rm -f "${etc_asterisk}/http.conf"
 bashio::var.json \
+    enabled "^$(bashio::config 'asterisk_web')" \
     certfile "${target_certfile}" \
     keyfile "${target_keyfile}" |
     tempio \
@@ -183,6 +184,12 @@ if bashio::var.true "$(bashio::config 'mailbox')"; then
     mkdir -p /media/asterisk
 else
     touch /tmp/disable-asterisk-mailbox
+fi
+
+if bashio::var.true "$(bashio::config 'asterisk_web')"; then
+    :
+else
+    touch /tmp/disable-asterisk-web
 fi
 
 # Save default configs

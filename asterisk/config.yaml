@@ -33,6 +33,7 @@ options:
   mailbox_password: ""
   mailbox_extension: "100"
   mailbox_google_api_key: ""
+  asterisk_web: false
   log_level: info
 schema:
   ami_password: password
@@ -50,6 +51,7 @@ schema:
   mailbox_password: password
   mailbox_extension: str
   mailbox_google_api_key: password
+  asterisk_web: bool
   log_level: list(all|trace|debug|info|notice|warning|error|fatal|off)
 host_network: true
 init: false

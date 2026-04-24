@@ -2,7 +2,7 @@
 ; We do not recommend you change it unless you know what you are doing.
 
 [general]
-enabled=yes
+enabled={{ .enabled }}
 bindaddr=[::]
 bindport=8088
 tlsenable=yes

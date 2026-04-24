@@ -1,0 +1,25 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start the asterisk UI service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+
+# shellcheck shell=bash
+
+if [[ -f "/tmp/disable-asterisk-web" ]]; then
+    # Tell S6-Overlay not to restart this service
+    s6-svc -O .
+    exit 0
+fi
+
+bashio::log.info "Starting Asterisk web UI..."
+
+# If log level is debug or higher, enable verbose logging
+# https://github.com/hassio-addons/bashio/blob/2860658149b88449c2be7e09c70b19adacc5d58d/lib/const.sh#L24
+if [[ "${__BASHIO_LOG_LEVEL}" -ge 6 ]]; then
+    extra_args=(--debug)
+else
+    extra_args=()
+fi
+
+exec asterisk_web --port 8088 "${extra_args[@]}"
