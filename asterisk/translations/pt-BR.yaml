@@ -66,6 +66,10 @@ configuration:
     name: Chave de API do Google
     description: >-
       A chave de API para conversão de fala em texto.
+  asterisk_web:
+    name: Interface Web do Asterisk
+    description: >-
+      Habilita a interface web do Asterisk, que fornece um painel e interface de configuração para o Asterisk.
   log_level:
     name: Nível de registro
     description: >-

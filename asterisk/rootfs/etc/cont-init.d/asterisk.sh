@@ -185,6 +185,13 @@ else
     touch /tmp/disable-asterisk-mailbox
 fi
 
+if bashio::var.true "$(bashio::config 'asterisk_web')"; then
+    asterisk_web_uri=http://192.168.1.21:8288
+    sed -i "s|<body>|<body style=\"margin: 0;\"><iframe src=\"${asterisk_web_uri}\" style=\"border: 0; width: 100%; height: 100%\"></iframe>|" /var/lib/asterisk/static-http/index.html
+else
+    touch /tmp/disable-asterisk-web
+fi
+
 # Save default configs
 bashio::log.info "Saving default configs to ${default_config_dir}..."
 if ! rsync --archive --delete "${etc_asterisk}/" "${default_config_dir}/"; then

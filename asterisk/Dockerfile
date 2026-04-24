@@ -275,6 +275,10 @@ COPY --from=build /opt/asterisk/ /
 
 COPY rootfs /
 
+# https://github.com/alexpayne482/asterisk-web
+ARG ASTERISK_WEB_VERSION="0.0.3"
+RUN pip3 install --no-cache-dir --break-system-packages https://github.com/alexpayne482/asterisk-web/releases/download/v${ASTERISK_WEB_VERSION}/asterisk_web-${ASTERISK_WEB_VERSION}.tar.gz
+
 # Without this, the STDIN script never gets executed
 ENV S6_CMD_WAIT_FOR_SERVICES=0
 

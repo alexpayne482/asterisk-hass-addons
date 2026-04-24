@@ -12,5 +12,6 @@
   "mailbox_password": "",
   "mailbox_extension": "100",
   "mailbox_google_api_key": "",
+  "asterisk_web": false,
   "log_level": "info"
 }

@@ -101,6 +101,10 @@ Which extension to get the voicemails from.
 The API Key for the speech-to-text used by Asterisk Mailbox.
 You can get a key [here](https://cloud.google.com/speech-to-text). Google says it's free, but requires a billing account.
 
+### Option: `asterisk_web`
+
+Enable WEB client for asterisk (https://github.com/alexpayne482/asterisk-web)
+
 ### Option: `log_level`
 
 The log level to configure Asterisk to use. To know more about the existing presets, check [`logger.conf`](./rootfs/usr/share/tempio/logger.conf.gtpl).

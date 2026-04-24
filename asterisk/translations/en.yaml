@@ -66,6 +66,10 @@ configuration:
     name: Google API Key
     description: >-
       The API Key for speech-to-text.
+  asterisk_web:
+    name: Asterisk Web Interface
+    description: >-
+      Enables the Asterisk web interface, which provides a dashboard and configuration interface for Asterisk.
   log_level:
     name: Log Level
     description: >-
